@@ -1,0 +1,73 @@
+{
+	"service": "https://services2.coastalresilience.org/arcgis/rest/services/California/Natural_Infrastructure_Blueprint/MapServer",
+	"layers": {
+		"monterey_bay-vegetated_dunes": { "type": "dynamic", "ids":[1], "fields": { "rank":"DuneFBnew", "diff":"DunDifNew" }  },
+		"monterey_bay-cobble_berms": { "type": "dynamic", "ids":[2], "fields": { "rank":"CobFBnew", "diff":"CobDifNew" } },
+		"monterey_bay-marsh_sill": { "type": "dynamic", "ids":[3] },
+		"monterey_bay-oyster_reef": { "type": "dynamic", "ids":[4] },
+		
+		"ventura-vegetated_dunes": { "type": "dynamic", "ids":[6], "fields": { "rank":"DuneFBnew", "diff":"DunDifNew" } },
+		"ventura-cobble_berms": { "type": "dynamic", "ids":[7], "fields": { "rank":"CobFBnew", "diff":"CobDifNew" } },
+		"ventura-marsh_sill": { "type": "dynamic", "ids":[8] },
+		"ventura-oyster_reef": { "type": "dynamic", "ids":[9] },
+		"ventura-eelgrass": { "type": "dynamic", "ids":[10] }
+	},
+	"controls": {
+		"backshore": [
+			{ "label": "Sheltered Water", "value": "sheltered_water" },
+			{ "label": "Open Coast", "value": "open_water" }
+		],
+		"habitat": {
+			"sheltered_water":[
+				{ "label": "Vegetated Dunes", "value": "vegetated_dunes" },
+				{ "label": "Cobble Berms", "value": "cobble_berms" },
+				{ "label": "Oyster Reef", "value": "oyster_reef" },
+				{ "label": "Marsh Sill", "value": "marsh_sill" },
+				{ "label": "Eelgrass Bed", "value": "eelgrass", "region": "Ventura" }
+			],
+			"open_water": [
+				{ "label": "Vegetated Dunes", "value": "vegetated_dunes" },
+				{ "label": "Cobble Berms", "value": "cobble_berms" }
+			]
+		}
+	
+	},
+	"tooltips": {
+		"habitat": {
+			"vegetated_dunes":"Coastal sand dunes are natural shore form systems consisting of wind-blown sand and native plants located landward of the annual extreme wave runup zone along the beach. Dunes act as coastal defense by providing sand storage to buffer erosion during extreme events and dissipating wave energy. Vegetated dunes further enhance physical processes and add ecological value. Vegetation acts to trap deposited sand particles and contribute to growth of the dune. Established plants not only trap sand, but also wind-born seeds to further enhance the vegetation of the dunes. Vegetated dunes also provide dynamic habitat for a diversity of wildlife. Established plants provide shelter from wind and sun for birds, mammals, reptiles, amphibians, and insects, many of which feed on nectar, seeds, or the plants themselves. Roots stabilize the sand for burrowing animals. Beaches and dunes together provide a range of habitats necessary for foraging, resting, roosting, and nesting of shorebirds.",
+			"cobble_berms":"Cobble berms are mounds of rounded rock sorted and shaped by wave action. They are most prevalent at river and creek mouths but also form at the base of cliffs, whether as lag deposits (typically below sandy beach and exposed when the sand scours away) or as higher, well-developed berms that extend to higher levels of wave run-up. Where cobble deposits naturally occur, cobble is seasonally exposed or covered with a sand layer. Gravel-cobble systems, such as those found in Puget Sound (WA), are the higher latitude analogs to sand-cobble systems in central and southern CA (Pacifica State Beach and Surfer’s Point Managed Retreat). In areas where cobble deposits are not naturally occurring, cobble berms are referred to as dynamic revetments. A few examples of where dynamic revetments have been successfully installed include: Ocean Beach (San Francisco, CA), Chula Vista Bayfront (San Diego Bay, CA) and Cape Lookout State Park (OR).",
+			"oyster_reef":"Oyster reefs are large aggregations of living oysters and oyster shells located in the intertidal and/or subtidal zones. The geomorphic function of oyster reefs is two-fold. Oyster reefs reduce bottom shear stress from waves and currents at lower tides and aid in sediment recruitment and retention. When located in bays and estuaries, native oyster reefs are most effective at dissipating wave energy at mean tide and lower tide levels. Oyster reefs also reduce shoreline erosion potential and support vegetation growth in the low intertidal zone. Reefs create physical complexity in mudflats, which influences the ecological value of these areas. Oyster reefs bolster the ecological function of a project site by increasing habitat diversity within the low intertidal and subtidal zones and improving water clarity through filtration of suspended particles. Decreased turbidity encourages growth of submerged aquatic vegetation and subsequent habitat creation for crustaceans, fish and other organisms.",
+			"marsh_sill":"A marsh sill is a low-profile stone structure, combined with a vegetated slope, constructed in water parallel to an existing shoreline. Sills can be constructed out of cobble or rock fragments. Marsh sills encourage shoreline stabilization by allowing sand and sediment to accumulate between the sill and shoreline. Wave action is dissipated on the stone structure, rather than the natural shore. Sediment accretion and marsh growth potential is enhanced due to the protection that the sill provides. Marsh vegetation and/or backshore development of the sill benefit from added coastal defense. As sea levels rise, the effectiveness of a marsh sill is gradually reduced since increased water levels allow larger waves to break further up the structure. Wave action higher up on the sill slope may potentially damage the sill and any infrastructure or vegetation behind the sill. Rapid submergence of the structure also renders it incapable of providing coastal defense. ",
+			"eelgrass":""
+		
+		}
+	},
+	"region": {
+		"Monterey Bay": {
+			"id":"monterey",
+			"extent": {
+				"xmin":-13569110.647599999,
+				"ymin":4382664.2736999989,
+				"xmax":-13543929.147699999,
+				"ymax":4421345.2854999993,
+				"spatialReference": {
+					"wkid": 102100,
+					"latestWkid": 3857
+				}
+			}
+		},
+		"Ventura": {
+			"id":"ventura",
+			"extent": {
+				"xmin": -13288721.369912772,
+				"ymin": 4035936.3860100782,
+				"xmax": -13245012.962495957,
+				"ymax": 4075072.7842828752,
+				"spatialReference": {
+					"wkid": 102100,
+					"latestWkid": 3857
+				}
+			}
+		}
+	}
+}
