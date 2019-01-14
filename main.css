@@ -245,29 +245,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding-top: 10px;
-padding-bottom: 10px;	
+padding-bottom: 10px;
+line-height:1;	
 }
-
-.plugin-nib .toggle-btn.enviro label {
-margin-right:35px;
-border-radius: 3px;
-background-color: #eeeeee;
-color: #b2b2b2;
-}
-
-.plugin-nib .toggle-btn.enviro label:last-of-type {
-margin-right:0px;
-}
-
-.plugin-nib .toggle-btn.enviro input:checked+label {
-color:#ffffff;
-background-color: #2B2E3B;
-}
-
-.plugin-nib .toggle-btn.enviro label:hover{
-background-color:#f3f3f3;
-}
-
 
 
 .plugin-nib .toggle {

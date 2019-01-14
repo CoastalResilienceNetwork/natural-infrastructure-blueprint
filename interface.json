@@ -1,6 +1,9 @@
 {
 	"service": "https://services2.coastalresilience.org/arcgis/rest/services/California/Natural_Infrastructure_Blueprint/MapServer",
 	"layers": {
+		"monterey_bay-background-slr": { "type": "dynamic", "ids":[12] },
+		"ventura-background-slr": { "type": "dynamic", "ids":[13] },
+		
 		"monterey_bay-vegetated_dunes": { "type": "dynamic", "ids":[1], "fields": { "rank":"DuneFBnew", "diff":"DunDifNew" }  },
 		"monterey_bay-cobble_berms": { "type": "dynamic", "ids":[2], "fields": { "rank":"CobFBnew", "diff":"CobDifNew" } },
 		"monterey_bay-marsh_sill": { "type": "dynamic", "ids":[3] },
@@ -11,6 +14,7 @@
 		"ventura-marsh_sill": { "type": "dynamic", "ids":[8] },
 		"ventura-oyster_reef": { "type": "dynamic", "ids":[9] },
 		"ventura-eelgrass": { "type": "dynamic", "ids":[10] }
+		
 	},
 	"controls": {
 		"backshore": [

@@ -177,7 +177,12 @@ define([
 						domStyle.set(self.loadingDiv,"display", "none");
 					})
 					
-					self._mapLayers[layer] = mapLayer;
+					if (layer.indexOf("background") >= 0) {
+						self._backgroundMapLayers[layer] = mapLayer
+					} else {
+						self._mapLayers[layer] = mapLayer;
+					}
+					
 					self._map.addLayer(mapLayer);
 					mapLayer.hide();
 					
@@ -194,6 +199,17 @@ define([
 					this._mapLayer.show();
 				}
 				
+			}
+			
+			this.updateBackgroundLayer = function() {
+				var layer = query(".plugin-nib .toggle-btn.background input[type=radio]:checked")[0].value;
+				_.each(_.keys(this._backgroundMapLayers), function(key) {
+					self._backgroundMapLayers[key].hide();
+				});
+				if (layer != "none") {
+					var layerId = this._region.toLowerCase().replace(" ", "_") + "-background-" + layer;
+					this._backgroundMapLayers[layerId].show();
+				}
 			}
 			
 						
@@ -238,6 +254,7 @@ define([
 				
 				this.createRegionControls(table);
 				this.createHabitatControls(table);
+				this.createBackgroundControls(table);
 				
 				//var tr = domConstruct.create("tr", {}, table);
 				var opacityTd = domConstruct.create("div", {}, table);
@@ -406,6 +423,65 @@ define([
 					style:"position:relative;margin-bottom:5px;text-align:left;font-size:14px;line-height:1;",
 					innerHTML: ''
 				}, habitatTd);
+				
+			}
+			
+			this.createBackgroundControls = function(table) {
+				var backgroundTd = domConstruct.create("div", { style:"padding:0px 20px;" }, table);
+				
+				var backgroundText = domConstruct.create("div", {
+					style:"position:relative;margin-bottom:5px;text-align:left;font-size:14px;",
+					innerHTML: '<span class="info-circle fa-stack fa dac-' + this._map.id + '-region"><i class="fa fa-circle fa-stack-1x"></i><span class="fa-stack-1x info-circle-text">4</span></span><b> Choose a Background Base Layer</b>'
+				}, backgroundTd);
+				
+				var containerDiv = domConstruct.create("div", {
+					className: "toggle-btn background"
+				}, backgroundTd);
+				
+				domConstruct.create("input", { 
+					type: "radio", 
+					value: "slr", 
+					name: "background",
+					checked: false,
+					id: "plugin-nib-background-slr-" + self._map.id
+				}, containerDiv);
+				
+				domConstruct.create("label", { 
+					for: "plugin-nib-background-slr-" + self._map.id,
+					innerHTML: "Sea Level<br>Rise"
+				}, containerDiv);
+				
+				domConstruct.create("input", { 
+					type: "radio", 
+					value: "habitat", 
+					name: "background",
+					checked: false, 
+					id: "plugin-nib-background-habitat-" + self._map.id
+				}, containerDiv);
+				
+				domConstruct.create("label", { 
+					for: "plugin-nib-background-habitat-" + self._map.id,
+					innerHTML: "Coastal<br>Habitats"
+				}, containerDiv);
+				
+				domConstruct.create("input", { 
+					type: "radio", 
+					value: "none", 
+					name: "background",
+					checked: true, 
+					id: "plugin-nib-background-none-" + self._map.id
+				}, containerDiv);
+				
+				domConstruct.create("label", { 
+					for: "plugin-nib-background-none-" + self._map.id,
+					innerHTML: "No<br>Background"
+				}, containerDiv);
+				
+				on(query(".plugin-nib .toggle-btn.background input"), "change", function(input) {
+					if (self._region != "") {
+						self.updateBackgroundLayer();
+					}
+				});
 				
 			}
 			
