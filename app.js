@@ -89,7 +89,7 @@ define([
 			this._plugin = plugin;
 			this._app = this._plugin.app;
 			this._container = this._plugin.container;
-			this._plugin_directory = this._plugin.plugin_directory;
+			this._plugin_directory = this._plugin.pluginDirectory;
 			this._legend = this._plugin.legendContainer;
 			this._legendData = {};
 			this._map = this._plugin.map;
@@ -338,23 +338,16 @@ define([
 				this.regionSelect.value = _.first(this.regionSelect.options).value;
 				this._region = this.regionSelect.value;
 				
-				this.downloadReport = domConstruct.create("div", { className:"downloadButton dac-report", innerHTML:'<i class="fa fa-file-pdf-o downloadIcon"></i><span class="downloadText">Report</span>' }, regionTd);
+				this.downloadReport = domConstruct.create("div", { className:"downloadButton nib-report", innerHTML:'<i class="fa fa-file-pdf-o downloadIcon"></i><span class="downloadText">Report</span>' }, regionTd);
 				on(this.downloadReport,"mouseover", function(){
-					if (self._region && self._region != "") {
-						domStyle.set(this, "background", "#0096d6");
-					}
+					domStyle.set(this, "background", "#0096d6");
 				});
 				on(this.downloadReport,"mouseout", function(){
-					if (self._region && self._region != "") {
-						 domStyle.set(this, "background", "#2B2E3B");
-					}
+					domStyle.set(this, "background", "#2B2E3B");
 				});
 				on(this.downloadReport,"click", function(){
-					 if (self._region && self._region != "") {
-						var url = self._interface.region[self._region].download.report;
-						url = url.replace("HOSTNAME-", window.location.href);
-						window.open(url, "_blank");
-					 }
+					var url = window.location.href + self._plugin_directory + "/" + self._interface.download.report;
+					window.open(url, "_blank");
 				});
 			}
 			
